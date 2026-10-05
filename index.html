@@ -1,461 +1,579 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ACGM Home Care Support</title>
+<title>ACGM Home Care Support</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5fbff;
-            color: #333;
-        }
+<style>
 
-        /* HEADER */
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5fbff;
+        color: #333;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+        background-color: white;
+        padding: 12px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    /* ACGM LOGO */
+
+    .logo img {
+        height: 75px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+    }
+
+    nav a {
+        margin-left: 25px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        color: #1677a8;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+        text-align: center;
+        padding: 100px 20px;
+        background: linear-gradient(135deg, #dff5ff, #ffffff);
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        color: #12658c;
+        margin-bottom: 20px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+        font-weight: normal;
+    }
+
+    .hero p {
+        font-size: 20px;
+        max-width: 700px;
+        margin: 25px auto;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    .button {
+        display: inline-block;
+        background-color: #1677a8;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .button:hover {
+        background-color: #0d5579;
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================== */
+
+    section {
+        padding: 70px 40px;
+    }
+
+    section h2 {
+        text-align: center;
+        font-size: 36px;
+        color: #12658c;
+    }
+
+    /* =========================
+       SERVICES
+    ========================== */
+
+    .services-intro {
+        text-align: center;
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 40px;
+    }
+
+    .service-container {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .service-card {
+        background-color: white;
+        width: 230px;
+        padding: 30px 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .service-card h3 {
+        color: #1677a8;
+    }
+
+    .service-card p {
+        line-height: 1.6;
+        color: #555;
+    }
+
+    .service-icon {
+        font-size: 45px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================== */
+
+    .about {
+        background-color: white;
+    }
+
+    .about-content {
+        max-width: 900px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .about-content p {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #555;
+    }
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact {
+        background-color: #eaf7fc;
+    }
+
+    .contact-container {
+        max-width: 700px;
+        margin: auto;
+        background-color: white;
+        padding: 35px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .contact-container label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    .contact-container input,
+    .contact-container textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    .contact-container textarea {
+        height: 130px;
+        resize: vertical;
+    }
+
+    .submit-button {
+        margin-top: 20px;
+        width: 100%;
+        border: none;
+        background-color: #1677a8;
+        color: white;
+        padding: 15px;
+        border-radius: 7px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .submit-button:hover {
+        background-color: #0d5579;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+        text-align: center;
+        padding: 25px;
+        background-color: #12658c;
+        color: white;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 700px) {
+
         header {
-            background-color: white;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            flex-direction: column;
+            padding: 15px 20px;
         }
 
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-            color: #1677a8;
+        .logo img {
+            height: 65px;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         nav a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
+            margin: 5px 8px;
+            font-size: 14px;
         }
 
-        nav a:hover {
-            color: #1677a8;
-        }
-
-        /* HERO */
         .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #dff5ff, #ffffff);
+            padding: 70px 20px;
         }
 
         .hero h1 {
-            font-size: 48px;
-            color: #12658c;
-            margin-bottom: 20px;
+            font-size: 36px;
         }
 
         .hero h2 {
-            font-size: 28px;
-            font-weight: normal;
+            font-size: 22px;
         }
 
         .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 25px auto;
-            line-height: 1.6;
-            color: #555;
+            font-size: 17px;
         }
 
-        .button {
-            display: inline-block;
-            background-color: #1677a8;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .button:hover {
-            background-color: #0d5579;
-        }
-
-        /* GENERAL SECTION */
         section {
-            padding: 70px 40px;
+            padding: 50px 20px;
         }
 
         section h2 {
-            text-align: center;
-            font-size: 36px;
-            color: #12658c;
-        }
-
-        /* SERVICES */
-        .services-intro {
-            text-align: center;
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .service-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: auto;
+            font-size: 30px;
         }
 
         .service-card {
-            background-color: white;
-            width: 230px;
-            padding: 30px 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .service-card h3 {
-            color: #1677a8;
-        }
-
-        .service-card p {
-            line-height: 1.6;
-            color: #555;
-        }
-
-        .service-icon {
-            font-size: 45px;
-        }
-
-        /* ABOUT */
-        .about {
-            background-color: white;
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .about-content p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        /* CONTACT */
-        .contact {
-            background-color: #eaf7fc;
-        }
-
-        .contact-container {
-            max-width: 700px;
-            margin: auto;
-            background-color: white;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .contact-container label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
-        }
-
-        .contact-container input,
-        .contact-container textarea {
             width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            box-sizing: border-box;
-            font-size: 16px;
+            max-width: 350px;
         }
 
-        .contact-container textarea {
-            height: 130px;
-            resize: vertical;
-        }
+    }
 
-        .submit-button {
-            margin-top: 20px;
-            width: 100%;
-            border: none;
-            background-color: #1677a8;
-            color: white;
-            padding: 15px;
-            border-radius: 7px;
-            font-size: 18px;
-            cursor: pointer;
-        }
+</style>
 
-        .submit-button:hover {
-            background-color: #0d5579;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 25px;
-            background-color: #12658c;
-            color: white;
-        }
-
-        /* MOBILE */
-        @media (max-width: 700px) {
-
-            header {
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            nav {
-                margin-top: 15px;
-            }
-
-            nav a {
-                margin: 5px;
-                font-size: 14px;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero h2 {
-                font-size: 22px;
-            }
-
-            section {
-                padding: 50px 20px;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
+<!-- =========================
+     HEADER
+========================== -->
 
-    <header>
+<header>
 
-        <div class="logo">
-            ACGM Home Care Support
-        </div>
+    <div class="logo">
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <!-- ACGM LOGO -->
+        <img
+            src="acgm-logo.png"
+            alt="ACGM Home Care Support Logo"
+        >
 
-    </header>
+    </div>
 
 
-    <!-- HOME -->
+    <nav>
 
-    <section class="hero" id="home">
+        <a href="#home">Home</a>
 
-        <h1>ACGM Home Care Support</h1>
+        <a href="#about">About Us</a>
 
-        <h2>Supporting You to Live Independently</h2>
+        <a href="#services">Services</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HOME
+========================== -->
+
+<section class="hero" id="home">
+
+    <h1>ACGM Home Care Support</h1>
+
+    <h2>Supporting You to Live Independently</h2>
+
+    <p>
+        Compassionate, respectful and person-centred home care support
+        designed to help individuals live safely, independently and
+        confidently in their own homes.
+    </p>
+
+    <a href="#contact" class="button">
+        Contact Us
+    </a>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================== -->
+
+<section class="about" id="about">
+
+    <h2>About ACGM Home Care Support</h2>
+
+    <div class="about-content">
 
         <p>
-            Compassionate, respectful and person-centred home care support
-            designed to help individuals live safely, independently and
-            confidently in their own homes.
+            At ACGM Home Care Support, we are committed to providing
+            compassionate and respectful support that is centred around
+            each person's individual needs, choices and goals.
         </p>
-
-        <a href="#contact" class="button">
-            Contact Us
-        </a>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="about" id="about">
-
-        <h2>About ACGM Home Care Support</h2>
-
-        <div class="about-content">
-
-            <p>
-                At ACGM Home Care Support, we are committed to providing
-                compassionate and respectful support that is centred around
-                each person's individual needs, choices and goals.
-            </p>
-
-            <p>
-                We believe everyone deserves to feel valued, respected and
-                supported. Our aim is to help people maintain their
-                independence, participate in their community and enjoy
-                greater confidence in everyday life.
-            </p>
-
-            <p>
-                Our support is delivered with dignity, kindness and a
-                person-centred approach.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- SERVICES -->
-
-    <section id="services">
-
-        <h2>Our Services</h2>
-
-        <p class="services-intro">
-            Personalised support designed around your individual needs and goals.
-        </p>
-
-        <div class="service-container">
-
-            <div class="service-card">
-
-                <div class="service-icon">🤝</div>
-
-                <h3>Personal Care</h3>
-
-                <p>
-                    Respectful support with everyday personal care while
-                    maintaining dignity, privacy and independence.
-                </p>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <div class="service-icon">🏠</div>
-
-                <h3>Domestic Assistance</h3>
-
-                <p>
-                    Support with household tasks to help maintain a safe,
-                    comfortable and welcoming home.
-                </p>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <div class="service-icon">🌳</div>
-
-                <h3>Community Participation</h3>
-
-                <p>
-                    Support to participate in community activities,
-                    social events and everyday outings.
-                </p>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <div class="service-icon">💙</div>
-
-                <h3>Daily Living Support</h3>
-
-                <p>
-                    Individualised assistance with daily activities to help
-                    you achieve your goals and live independently.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section class="contact" id="contact">
-
-        <h2>Contact Us</h2>
-
-        <div class="contact-container">
-
-            <form>
-
-                <label for="name">Your Name</label>
-
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Enter your name"
-                    required
-                >
-
-                <label for="email">Email Address</label>
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    required
-                >
-
-                <label for="phone">Phone Number</label>
-
-                <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="Enter your phone number"
-                >
-
-                <label for="message">Message</label>
-
-                <textarea
-                    id="message"
-                    name="message"
-                    placeholder="How can we help you?"
-                ></textarea>
-
-                <button class="submit-button" type="submit">
-                    Send Message
-                </button>
-
-            </form>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <footer>
 
         <p>
-            © 2026 ACGM Home Care Support. All rights reserved.
+            We believe everyone deserves to feel valued, respected and
+            supported. Our aim is to help people maintain their
+            independence, participate in their community and enjoy
+            greater confidence in everyday life.
         </p>
 
-    </footer>
+        <p>
+            Our support is delivered with dignity, kindness and a
+            person-centred approach.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SERVICES
+========================== -->
+
+<section id="services">
+
+    <h2>Our Services</h2>
+
+    <p class="services-intro">
+        Personalised support designed around your individual needs and goals.
+    </p>
+
+
+    <div class="service-container">
+
+
+        <div class="service-card">
+
+            <div class="service-icon">🤝</div>
+
+            <h3>Personal Care</h3>
+
+            <p>
+                Respectful support with everyday personal care while
+                maintaining dignity, privacy and independence.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">🏠</div>
+
+            <h3>Domestic Assistance</h3>
+
+            <p>
+                Support with household tasks to help maintain a safe,
+                comfortable and welcoming home.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">🌳</div>
+
+            <h3>Community Participation</h3>
+
+            <p>
+                Support to participate in community activities,
+                social events and everyday outings.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">💙</div>
+
+            <h3>Daily Living Support</h3>
+
+            <p>
+                Individualised assistance with daily activities to help
+                you achieve your goals and live independently.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================== -->
+
+<section class="contact" id="contact">
+
+    <h2>Contact Us</h2>
+
+    <div class="contact-container">
+
+        <form>
+
+            <label for="name">
+                Your Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+            >
+
+
+            <label for="email">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <label for="phone">
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter your phone number"
+            >
+
+
+            <label for="message">
+                Message
+            </label>
+
+            <textarea
+                id="message"
+                name="message"
+                placeholder="How can we help you?"
+            ></textarea>
+
+
+            <button
+                class="submit-button"
+                type="submit"
+            >
+                Send Message
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <p>
+        © 2026 ACGM Home Care Support. All rights reserved.
+    </p>
+
+</footer>
 
 </body>
 
